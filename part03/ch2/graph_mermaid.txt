@@ -1,0 +1,32 @@
+---
+config:
+  flowchart:
+    curve: linear
+---
+graph TD;
+	__start__([<p>__start__</p>]):::first
+	retrieve_node(retrieve_node)
+	grade_documents_node(grade_documents_node)
+	generate_node(generate_node)
+	transform_query_node(transform_query_node)
+	web_search_node(web_search_node)
+	generate_web_search_node(generate_web_search_node)
+	generate_llm_node(generate_llm_node)
+	__end__([<p>__end__</p>]):::last
+	__start__ -. &nbsp;llm&nbsp; .-> generate_llm_node;
+	__start__ -. &nbsp;vectorstore&nbsp; .-> retrieve_node;
+	__start__ -. &nbsp;web_search&nbsp; .-> web_search_node;
+	generate_node -. &nbsp;end&nbsp; .-> __end__;
+	generate_node -. &nbsp;not useful&nbsp; .-> transform_query_node;
+	grade_documents_node -. &nbsp;end&nbsp; .-> __end__;
+	grade_documents_node -. &nbsp;generate&nbsp; .-> generate_node;
+	grade_documents_node -. &nbsp;transform_query&nbsp; .-> transform_query_node;
+	retrieve_node --> grade_documents_node;
+	transform_query_node --> retrieve_node;
+	web_search_node --> generate_web_search_node;
+	generate_llm_node --> __end__;
+	generate_web_search_node --> __end__;
+	generate_node -. &nbsp;not supported&nbsp; .-> generate_node;
+	classDef default fill:#f2f0ff,line-height:1.2
+	classDef first fill-opacity:0
+	classDef last fill:#bfb6fc

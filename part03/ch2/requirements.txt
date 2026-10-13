@@ -1,0 +1,13 @@
+langchain>=0.2.0
+langchain-core>=0.2.0
+langchain-community>=0.2.0
+langchain-chroma
+langchain-ollama
+langchain-text-splitters
+langgraph
+pydantic>=2.0
+python-dotenv
+chromadb
+requests
+langchainhub
+beautifulsoup4
