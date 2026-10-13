@@ -1,5 +1,11 @@
 """
-실행방법 : c:\workspaces\venv\Scripts\python.exe -m streamlit run 02_perplexity_streamlit.py
+[실행방법]
+# 1. 파일이 있는 디렉터리로 이동
+cd C:\workspaces\kein_edu\part04
+
+# 2. Streamlit 실행
+c:\workspaces\venv\Scripts\python.exe -m streamlit run 02_perplexity_streamlit.py
+
 웹브라우저에서 http://localhost:8501/ 접속
 =======================================================================
 [학습 교재용 소스 코드 설명]
